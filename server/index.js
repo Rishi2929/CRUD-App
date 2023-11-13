@@ -4,6 +4,8 @@ const cors = require('cors')
 const UserModel = require('./models/Users')
 
 const app = express()
+const port = process.env.PORT || 3001;
+
 
 app.use(cors())
 app.use(express.json())
@@ -41,6 +43,6 @@ app.post("/createUser", (req, res) => {
         .then(users => res.json(users))
         .catch(err => res.json(err))
 })
-app.listen(3001, () => {
+app.listen(port, () => {
     console.log("Server is running")
 })
